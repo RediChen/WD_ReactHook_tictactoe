@@ -1,4 +1,4 @@
-name: CI
+name: CICD to gh pages
 
 on:
   push:
@@ -23,11 +23,9 @@ jobs:
           node-version: 20.x
       # 安裝 npm 套件
       - name: Install packages
-        run: npm install
-      - name: update dependencies
-        run: |
-          npm i npm-check-updates
-          ncu --update
+      - run: npm install
+      - run: npm i npm-check-updates
+      - run: ncu --update
         
       # 建置專案並部署到 GitHub-pages，別人寫好的 yml
       - name: Build
