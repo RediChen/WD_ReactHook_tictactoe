@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  //emmet 在 REACT.js 打 HTML
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hans": true
+  },
+}
