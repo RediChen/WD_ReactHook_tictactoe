@@ -1,0 +1,78 @@
+@import "../style/index.scss";
+
+$length: 16vh;
+
+.board {
+	margin-inline: auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+
+	$gap: 1rem;
+	gap: $gap;
+	width: calc(3 *#{$length} + 2 * #{$gap});
+	aspect-ratio: 1;
+
+	@include rwd-above("lg") {
+		$gap: 1.2rem;
+		gap: $gap;
+		width: calc(3 *#{$length} + 2 * #{$gap});
+	}
+}
+
+.square {
+	width: $length;
+	height: $length;
+	background: hsl(85, 100%, 96%);
+	box-shadow: 0 0 15px rgba(220, 254, 179, 0.7);
+	color: rgb(0, 55, 0);
+	font-size: $length * 0.4;
+	font-weight: bold;
+	line-height: $length;
+	text-align: center;
+	user-select: none;
+	transition: 0.2s;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover:not(.square-active) {
+		// hover always 優先
+		background: hsl(56, 100%, 85%);
+		box-shadow: 0 0 20px hsla(56, 97%, 85%, 0.9);
+	}
+
+	&.active {
+		background: hsl(26, 100%, 85%);
+		box-shadow: 0 0 20px hsla(26, 97%, 85%, 0.9);
+		animation: shake 0.3s 1;
+	}
+}
+
+@keyframes shake {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	12% {
+		transform: rotate(6deg);
+	}
+
+	38% {
+		transform: rotate(-6deg);
+	}
+
+	63% {
+		transform: rotate(3deg);
+	}
+
+	88% {
+		transform: rotate(-3deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
