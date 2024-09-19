@@ -114,19 +114,14 @@ export default function Game() {
   }
 
   const jumpTo = (newStepNum) => {
-    console.log('開始 jump');
     if (stepNum === 0) return;
     // 因為 setStepNum 並非馬上更新，才需要依賴新變數吩咐
     setStepNum(newStepNum);
     setIs0sTurn((newStepNum % 2 === 0));
     setStatus('現在輪到: ' + (newStepNum % 2 === 0 ? PIECE[0] : PIECE[1]));
-    setHistory(prev => prev.slice(0, newStepNum + 1));
+    setHistory(prev => prev.slice(0, newStepNum + 1));// +1 | 初始棋盤
     setIsEnd(false);
-    console.log('結束 jump');
   }
-
-  console.log(history);
-  console.log(stepNum);
 
   return (
     <div className={["container", s.game].join(' ')}>
