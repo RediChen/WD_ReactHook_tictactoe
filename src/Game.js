@@ -6,7 +6,7 @@ import s from './game.module.scss';
 /**
  * 棋子設定處
  */
-const PIECE = ['>w<', '~3~'];
+const PIECE = ['O', 'X'];
 
 const getTimeStamp = () => new Date().getTime();
 
