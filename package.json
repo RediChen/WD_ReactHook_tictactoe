@@ -2,7 +2,7 @@
 	"name": "tictactoe-react",
 	"version": "0.2.0",
 	"private": true,
-	"homepage": "https://redichen.github.io/WD_ReactHook_tictactoe/",
+	"homepage": "https://redichen.github.io/tictactoe_basic/",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
