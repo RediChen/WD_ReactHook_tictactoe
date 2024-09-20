@@ -1,7 +1,5 @@
 @import "../style/index.scss";
 
-$length: 16vh;
-
 .board {
 	margin-inline: auto;
 	display: grid;
@@ -10,26 +8,24 @@ $length: 16vh;
 
 	$gap: 1rem;
 	gap: $gap;
-	width: calc(3 *#{$length} + 2 * #{$gap});
+	// width: calc(3 *#{$length} + 2 * #{$gap});
 	aspect-ratio: 1;
 
 	@include rwd-above("lg") {
 		$gap: 1.2rem;
 		gap: $gap;
-		width: calc(3 *#{$length} + 2 * #{$gap});
+		// width: calc(3 *#{$length} + 2 * #{$gap});
 	}
 }
 
 .square {
-	width: $length;
-	height: $length;
+	@extend .gr-center;
+	aspect-ratio: 1;
 	background: hsl(85, 100%, 96%);
 	box-shadow: 0 0 15px rgba(220, 254, 179, 0.7);
 	color: rgb(0, 55, 0);
-	font-size: $length * 0.4;
+	font-size: 5rem;
 	font-weight: bold;
-	line-height: $length;
-	text-align: center;
 	user-select: none;
 	transition: 0.2s;
 	cursor: pointer;

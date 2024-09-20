@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import isWho from './utils/winner-determiner';
 import Board from './components/board';
-import s from './game.module.scss';
+import s from './panel.module.scss';
 
 /**
  * 棋子設定處
@@ -33,7 +33,7 @@ export default function Game() {
    */
   const [is0sTurn, setIs0sTurn] = useState(true);
 
-  const [status, setStatus] = useState(`現在輪到: ${PIECE[0]}`);
+  const [status, setStatus] = useState(`現在輪到：${PIECE[0]}`);
 
   const [isEnd, setIsEnd] = useState(false);
 
@@ -124,33 +124,41 @@ export default function Game() {
   }
 
   return (
-    <div className={["container", s.game].join(' ')}>
-      <div className="row">
-        <div className="col-12 col-lg-8">
+    <div className="container min-vh-100 pt-3 pt-lg-5">
+      <div className="row pt-3 pt-lg-5 justify-content-center">
+        <div className="col-12 col-lg-5">
           <Board
             gameSituation={history[stepNum].squares}
             clickHandler={handleClick}
             shakeState={shakeState}
           />
         </div>
-        <div className="col-12 col-lg-4">
+        <div className="col-12 col-lg-auto">
           <div className={s.gamePanel}>
             <div className={s.status}>{status}</div>
-            <div className="btn-box">
-              <div className="restart" onClick={() => jumpTo(0)}>重新開始</div>
-              <div className="btn-plate">
-                {history.map((item, i) => {
-                  if (i <= 0 || i >= 9) return <></>;
-                  // 以下只顯示 i = 1 ~ 8
-                  const isActive = item && i !== stepNum;
-                  const btnClass = "btn" + (isActive ? " btn-active" : "");
+            <div className={s.btnBox}>
+              <div className={s.restart} onClick={() => jumpTo(0)}>重新開始</div>
+              <div className={s.btnPlate}>
+                {Array(8).fill(0).map((_, i) => {
+                  const isEmpty = !history[i + 1];
+                  let isActive = false;
+                  let btnClass = '';
 
+                  if (isEmpty) {
+                    // isActive = false;
+                    btnClass = [s.btn, s.empty].join(' ');
+                  } else {
+                    isActive = stepNum !== i + 1;
+                    btnClass = s.btn + (isActive ? ` ${s.active}` : "");
+                  }
                   return (
-                    <div
+                    <button
                       key={getTimeStamp + i}
-                      onClick={item ? () => jumpTo(i) : null}
+                      type='button'
+                      onClick={isEmpty ? null : () => jumpTo(i + 1)}
                       className={btnClass}
-                    >{i}</div>
+                      disabled={!isActive}
+                    >{isEmpty ? '' : i + 1}</button>
                   )
                 })}
               </div>

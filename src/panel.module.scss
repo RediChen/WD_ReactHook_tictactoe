@@ -1,0 +1,108 @@
+@import "./style/index.scss";
+
+.gamePanel {
+	margin-top: 3rem;
+	padding: 4rem 2rem;
+	height: fit-content;
+	background-color: hsla(85, 100%, 100%, 5%);
+	box-shadow: inset 0 -10px 25px rgba(255, 255, 255, 0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 1rem;
+
+	@include rwd-above("lg") {
+		margin-top: 0;
+		padding: 1rem 2rem;
+		height: calc(16vh * 3 + 1.2rem * 2);
+	}
+}
+
+.status {
+	width: 100%;
+	background-color: hsl(0, 0%, 90%);
+	margin-bottom: 2rem;
+	font-size: 2.5rem;
+	text-align: center;
+	font-weight: bold;
+	line-height: 5rem;
+	border-radius: 0.6rem;
+}
+
+.btnBox {
+	display: flex;
+
+	.btnPlate {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		box-shadow: 0 3px 5px 1px #111;
+	}
+}
+
+.btn-prototype {
+	display: block;
+	width: 2.5rem;
+	height: 2.5rem;
+	@extend .fx-center;
+	background-color: transparent;
+	color: hsl(39, 54%, 15%);
+	border: 1px solid #666;
+	transition: background-color 0.4s, box-shadow 0.4s, transform 0.4s;
+	font-size: 1.6rem;
+	user-select: none;
+}
+
+.btn-style {
+	&:hover {
+		background-color: hsl(37, 80%, 75%);
+		box-shadow: 0 0 3px hsl(37, 80%, 75%), 0 0 10px hsla(37, 80%, 90%, 0.8),
+			0 0 5px hsla(37, 78%, 57%, 0.9) inset,
+			0 0 15px hsla(37, 80%, 65%, 0.9) inset;
+	}
+
+	&:active {
+		background-color: hsl(37, 83%, 84%);
+		box-shadow: 0 0 3px hsl(37, 80%, 75%), 0 0 10px hsla(37, 80%, 90%, 0.8),
+			0 0 5px hsla(37, 78%, 57%, 0.9) inset,
+			0 0 15px hsla(37, 80%, 65%, 0.9) inset;
+		transform: translateY(2px);
+	}
+}
+
+//todo: 3 種型態，透明但佔據空間，有數字但不可互動，有數字且可互動
+
+.btn {
+	@extend .btn-prototype;
+
+	&:not(.empty) {
+		background-color: hsl(37, 14%, 50%);
+	}
+
+	&.active {
+		background-color: hsl(37, 80%, 60%);
+		box-shadow: 0 0 3px hsl(37, 80%, 75%), 0 0 10px hsla(37, 80%, 90%, 0.8),
+			0 0 3px hsla(37, 80%, 95%, 0.9) inset,
+			0 0 10px hsla(37, 80%, 65%, 0.9) inset;
+		@extend .btn-style;
+		cursor: pointer;
+	}
+}
+
+.restart {
+	width: 5rem;
+	height: 5rem;
+	margin-right: 1rem;
+
+	@extend .fx-center;
+
+	background-color: hsl(37, 80%, 60%);
+	box-shadow: 0 0 3px hsl(37, 80%, 75%), 0 3px 5px 1px #111,
+		0 0 10px hsla(37, 80%, 90%, 0.8), 0 0 3px hsla(37, 80%, 95%, 0.9) inset,
+		0 0 10px hsla(37, 80%, 65%, 0.9) inset;
+	font-size: 1rem;
+	border-radius: 50%;
+	transition: 0.4s;
+	cursor: pointer;
+	@extend .btn-style;
+}

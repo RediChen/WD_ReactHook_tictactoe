@@ -1,1 +1,12 @@
-@forward './rwd/rwd-system';
+@forward "./rwd/rwd-system";
+
+.fx-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gr-center {
+	display: grid;
+	place-items: center;
+}

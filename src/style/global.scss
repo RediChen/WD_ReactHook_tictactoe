@@ -1,109 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100vh;
+	height: 100vh;
 }
 
 body {
-    background-color: #333;
-    font: 14px "Century Gothic", Futura, sans-serif;
-    overflow: hidden;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-.btn-box {
-    display: flex;
-
-    .btn-style {
-        &:hover {
-            background-color: hsl(23, 80%, 75%);
-            box-shadow:
-                0 0 3px hsl(23, 80%, 75%),
-                0 0 10px hsla(23, 80%, 90%, 0.8),
-                0 0 5px hsla(24, 78%, 57%, 0.9) inset,
-                0 0 15px hsla(23, 80%, 65%, 0.9) inset;
-        }
-
-        &:active {
-            background-color: hsl(1, 83%, 64%);
-            box-shadow:
-                0 0 3px hsl(23, 80%, 75%),
-                0 0 10px hsla(23, 80%, 90%, 0.8),
-                0 0 5px hsla(24, 78%, 57%, 0.9) inset,
-                0 0 15px hsla(23, 80%, 65%, 0.9) inset;
-            transform: translateY(3px);
-        }
-    }
-
-    .btn-plate {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        box-shadow: 0 3px 5px 1px #111;
-
-        .btn {
-            width: 2.5rem;
-            height: 2.5rem;
-            background-color: hsl(37, 14%, 50%);
-            border: 1px solid #666;
-            transition: 0.4s;
-            font-size: 1.6rem;
-            @extend .center;
-
-            &-active {
-                background-color: hsl(37, 80%, 60%);
-                box-shadow:
-                    0 0 3px hsl(37, 80%, 75%),
-                    0 0 10px hsla(37, 80%, 90%, 0.8),
-                    0 0 3px hsla(37, 80%, 95%, 0.9) inset,
-                    0 0 10px hsla(37, 80%, 65%, 0.9) inset;
-                @extend .btn-style;
-            }
-        }
-    }
-
-    .restart {
-        width: 5rem;
-        height: 5rem;
-        margin-right: 1rem;
-
-        @extend .center;
-
-        background-color: hsl(37, 80%, 60%);
-        box-shadow:
-            0 0 3px hsl(37, 80%, 75%),
-            0 3px 5px 1px #111,
-            0 0 10px hsla(37, 80%, 90%, 0.8),
-            0 0 3px hsla(37, 80%, 95%, 0.9) inset,
-            0 0 10px hsla(37, 80%, 65%, 0.9) inset;
-        font-size: 1rem;
-        border-radius: 50%;
-        transition: 0.4s;
-        cursor: pointer;
-        @extend .btn-style;
-    }
+	background-color: #333;
+	font: 14px "Century Gothic", Futura, sans-serif;
+	overflow: hidden;
 }
 
 ol,
 ul {
-    padding-left: 30px;
+	padding-left: 30px;
 }
-
-
 
 .kbd-navigation .square:focus {
-    background: #ddd;
+	background: #ddd;
 }
-
